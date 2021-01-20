@@ -12,6 +12,7 @@ def get_all_actors():
     """
     Get list of all records
     """  
+    
     all_actors = Actor.query.all()
     actors = []
     for actor in all_actors:
@@ -25,6 +26,18 @@ def get_actor_by_id():
     Get record by id
     """
     data = get_request_data()
+    print(data)
+    '''row_id = 1
+    obj = Actor.query.filter_by(id=row_id).first()
+    try:
+        actor = {k: v for k, v in obj.__dict__.items() if k in ACTOR_FIELDS}
+    except:
+        err = 'Record with such id does not exist'
+        return make_response(jsonify(error=err), 400) 
+
+    return make_response(jsonify(actor), 200)'''
+
+
     if 'id' in data.keys():
         try:
             row_id = int(data['id'])
