@@ -9,4 +9,4 @@ RUN export PYTHONPATH=*'${PYTHONPATH}:/app'
 
 COPY  .  .
 
-CMD ["python", "./app/run.py"]
+CMD ["python", "run.py"]
