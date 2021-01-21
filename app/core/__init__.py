@@ -3,7 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 import os
 from datetime import datetime as dt
 
-from ddtrace import patch_all
+
 from sqlalchemy import engine,exc
 
 
