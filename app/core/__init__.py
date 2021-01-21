@@ -8,8 +8,8 @@ from sqlalchemy import engine,exc
 
 
 try:
-    DB_URL = 'postgresql+psycopg2://test_user:password@127.0.0.1:5432/test_db'   #os.environ['DB_URL']  
-
+    #DB_URL = 'postgresql+psycopg2://test_user:password@127.0.0.1:5432/test_db'   #os.environ['DB_URL']  
+    DB_URL = os.environ['DB_URL']  
 #postgresql+psycopg2://test_user:password@0.0.0.0:5432/test_db
 
 #patch_all()
