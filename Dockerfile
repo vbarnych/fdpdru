@@ -11,5 +11,5 @@ RUN export PYTHONPATH=*'${PYTHONPATH}:/app'
 
 COPY  .  .
 
-CMD python run.py
+CMD ["python", "./run.py"]
 
