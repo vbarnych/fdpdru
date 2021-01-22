@@ -4,7 +4,7 @@ from core import db
 from .base import Model
 from .relations import association
 
-class Actor(db.Model):
+class Actor(Model, db.Model):
     __tablename__ = 'actors'
 
     # id -> integer, primary key

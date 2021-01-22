@@ -5,7 +5,7 @@ from .base import Model
 from .relations import association
 
 
-class Movie(db.Model):
+class Movie(Model, db.Model):
     __tablename__ = 'movies'
 
     # id -> integer, primary key

@@ -48,5 +48,6 @@ def create_app():
         #db.create_all()       # помилка під час виконання цього рядка
 
         return app
+        
 
 
