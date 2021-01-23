@@ -22,25 +22,25 @@ db.init_app(app)
 
 with app.app_context():
     db.create_all()
-    actor = Actor(**data_actor)
+    actor = Actor.create(**data_actor)
     print('created actor:', actor.__dict__, '\n')
 
     movie = Movie.create(**data_movie)
     print('created movie:', movie.__dict__, '\n')
 
-    upd_actor = Actor.update(15, **data_actor_upd)
-    print('updated actor:', upd_actor.__dict__, '\n')
+    #upd_actor = Actor.update(15, **data_actor_upd)
+    #print('updated actor:', upd_actor.__dict__, '\n')
 
-    upd_movie = Movie.update(16, **data_movie_upd)
-    print('updated movie:', upd_movie.__dict__, '\n')
+    #upd_movie = Movie.update(16, **data_movie_upd)
+    #print('updated movie:', upd_movie.__dict__, '\n')
 
-    add_rels_actor = Actor.add_relation(15, upd_movie)
-    movie_2 = Movie.create(**data_movie)
-    add_more_rels_actor = Actor.add_relation(15, movie_2)
-    print('relations list:', add_more_rels_actor.filmography, '\n')
+    #add_rels_actor = Actor.add_relation(15, upd_movie)
+    #movie_2 = Movie.create(**data_movie)
+    #add_more_rels_actor = Actor.add_relation(15, movie_2)
+    #print('relations list:', add_more_rels_actor.filmography, '\n')
 
-    clear_rels_actor = Actor.clear_relations(15)
-    print('all relations cleared:', clear_rels_actor.filmography, '\n')
+    #clear_rels_actor = Actor.clear_relations(15)
+    #print('all relations cleared:', clear_rels_actor.filmography, '\n')
 
-    del_actor = Actor.delete(15)
-    print('actor deleted:', del_actor)
+    #del_actor = Actor.delete(15)
+    #print('actor deleted:', del_actor)

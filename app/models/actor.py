@@ -4,11 +4,14 @@ from core import db
 from .base import Model
 from .relations import association
 
-i = 0
-def mydefault():
-    global i
-    i += 1
-    return i
+
+def mydefault(): 
+    res = 0
+    for i in range(1, 100000):
+        if Actor.query.filter_by(id=i).first() == None:
+            res = i
+            break
+    return res
 
 
 class Actor(Model, db.Model):
@@ -30,3 +33,5 @@ class Actor(Model, db.Model):
 
     def __repr__(self):
         return '<Actor {}>'.format(self.name)
+
+

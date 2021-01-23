@@ -4,11 +4,15 @@ from core import db
 from .base import Model
 from .relations import association
 
-i = 0
-def mydefault():
-    global i
-    i += 1
-    return i
+
+def mydefault(): 
+    res = 0
+    for i in range(1, 100000):
+        if Movie.query.filter_by(id=i).first() == None:
+            res = i
+            break
+    return res
+
 
 class Movie(Model, db.Model):
     __tablename__ = 'movies'
@@ -30,3 +34,4 @@ class Movie(Model, db.Model):
 
     def __repr__(self):
         return '<Movie {}>'.format(self.name)
+
