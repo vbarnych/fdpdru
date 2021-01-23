@@ -4,12 +4,17 @@ from core import db
 from .base import Model
 from .relations import association
 
+i = 0
+def mydefault():
+    global i
+    i += 1
+    return i
 
 class Movie(Model, db.Model):
     __tablename__ = 'movies'
 
     # id -> integer, primary key
-    id =  db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.Integer, primary_key=True, default=mydefault)
     # name -> string, size 50, unique, not nullable
     name =  db.Column(db.String(50), unique=True, nullable=False)
    
