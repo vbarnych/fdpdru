@@ -52,7 +52,6 @@ def add_movie():
     ### YOUR CODE HERE ###
 
     
-    data = get_request_data()
     if 'name' in data.keys():
         try:
             new_record = Movie.create(**data)
