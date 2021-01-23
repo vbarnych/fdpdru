@@ -6,7 +6,7 @@ from .relations import association
 
 
 def mydefault(): 
-    res = 0
+    res = 1
     for i in range(1, 100000):
         if Movie.query.filter_by(id=i).first() == None:
             res = i
