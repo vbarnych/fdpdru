@@ -64,16 +64,8 @@ def add_actor():
     Add new actor
     """
     data = get_request_data()
-    ### YOUR CODE HERE ###
 
-    # use this for 200 response code
-    new_record = Actor.create(**data)
-    new_actor = {k: v for k, v in new_record.__dict__.items() if k in ACTOR_FIELDS}
-    return make_response(jsonify(new_actor), 200)
-    ### END CODE HERE ###
-
-
-    '''if 'name'in data.keys():
+    if 'name'in data.keys():
         try:
             new_record = Actor.create(**data)
         except:
@@ -86,7 +78,7 @@ def add_actor():
 
     else :
         err = 'No name specified'
-        return make_response(jsonify(error=err), 400)'''
+        return make_response(jsonify(error=err), 400)
 
     
 

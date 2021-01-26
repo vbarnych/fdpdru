@@ -50,15 +50,7 @@ def add_movie():
     """
     data = get_request_data()
     ### YOUR CODE HERE ###
-
-    # use this for 200 response code
-    new_record = Movie.create(**data)
-    new_movie = {k: v for k, v in new_record.__dict__.items() if k in MOVIE_FIELDS}
-    return make_response(jsonify(new_actor), 200)
-    ### END CODE HERE ###
-
-
-    '''if 'name' in data.keys():
+    if 'name' in data.keys():
         try:
             new_record = Movie.create(**data)
         except:
@@ -68,7 +60,7 @@ def add_movie():
         return make_response(jsonify(new_movie), 200)
     else:
         err = 'No name specified'
-        return make_response(jsonify(error=err), 400)'''
+        return make_response(jsonify(error=err), 400)
 
 
 def update_movie():
@@ -77,7 +69,7 @@ def update_movie():
     """
     data = get_request_data()
     ### YOUR CODE HERE ###
-    data = get_request_data()
+
     if 'id' in data.keys():
         try:
             row_id = int(data['id'])
