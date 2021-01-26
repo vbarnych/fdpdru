@@ -64,13 +64,17 @@ def add_actor():
     Add new actor
     """
     data = get_request_data()
-
+    print(data)
     if 'name' in data.keys():
-        try:
+        print("data")
+        print(data)
+        new_record = Actor.create(**data)
+        '''try:
             new_record = Actor.create(**data)
+            print(new_record)
         except:
             err = "Incorrect data format"
-            return make_response(jsonify(error=err), 400)
+            return make_response(jsonify(error=err), 400)'''
 
         new_actor = {k: v for k, v in new_record.__dict__.items() if k in ACTOR_FIELDS}
 

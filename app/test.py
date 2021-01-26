@@ -11,6 +11,8 @@ from models import Actor, Movie
 data_actor = {'name': 'Megan Fox', 'gender': 'female', 'date_of_birth': dt.strptime('16.05.1986', '%d.%m.%Y').date()}
 data_actor_upd = {'name': 'Not Megan Fox', 'gender': 'male', 'date_of_birth': dt.strptime('16.05.2000', '%d.%m.%Y').date()}
 
+print(data_actor)
+
 data_movie = {'name': 'Transformers', 'genre': 'action', 'year': 2007}
 data_movie_upd = {'name': 'Teenage Mutant Ninja Turtles', 'genre': 'bad movie', 'year': 2014}
 

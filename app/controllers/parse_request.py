@@ -30,7 +30,7 @@ def get_request_data():
     print(request.args.to_dict().keys())
   
     print("name in data.keys()")
-    print("name" in request.args.to_dict().keys())
+    print("name" in data.keys())
 
     print("request.is_json")
     print(request.is_json)
