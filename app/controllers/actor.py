@@ -65,7 +65,7 @@ def add_actor():
     """
     data = get_request_data()
 
-    if 'name'in data.keys():
+    if 'name' in data.keys():
         try:
             new_record = Actor.create(**data)
         except:
