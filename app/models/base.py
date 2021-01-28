@@ -24,7 +24,7 @@ class Model(object):
         return commit(obj)
 
     @classmethod
-    def update(cls, row_id, **kwargs):          
+    def update(cls, row_id, **kwargs):
         """
         Update record by id
 
@@ -33,11 +33,11 @@ class Model(object):
         kwargs: dict with object parameters
         """
         obj = cls.query.filter_by(id=row_id).first()
-        for key, value in kwargs.items():
-            if key != 'id':
-                setattr(obj, key, value)
+        for column in kwargs:
+            setattr(obj, column, kwargs[column])
+
         return commit(obj)
-    
+
     @classmethod
     def delete(cls, row_id):
         """
@@ -47,31 +47,27 @@ class Model(object):
         row_id: record id
         return: int (1 if deleted else 0)
         """
-        obj = cls.query.filter_by(id=row_id).first()
-        if obj != None:
-            db.session.delete(obj)
-            db.session.commit()
-            obj = 1
-        else :
-            obj = 0
+        obj = cls.query.filter_by(id=row_id).delete()
+        db.session.commit()
+
         return obj
-    
+
     @classmethod
-    def add_relation(cls, row_id, rel_obj):  
+    def add_relation(cls, row_id, rel_obj):
         """
         Add relation to object
 
         cls: class
         row_id: record id
         rel_obj: related object
-        """      
+        """
         obj = cls.query.filter_by(id=row_id).first()
         if cls.__name__ == 'Actor':
             obj.filmography.append(rel_obj)
         elif cls.__name__ == 'Movie':
             obj.cast.append(rel_obj)
         return commit(obj)
-            
+
     @classmethod
     def remove_relation(cls, row_id, rel_obj):
         """
@@ -98,7 +94,7 @@ class Model(object):
         """
         obj = cls.query.filter_by(id=row_id).first()
         if cls.__name__ == 'Actor':
-            obj.filmography = []
+            obj.filmography.clear()
         elif cls.__name__ == 'Movie':
-            obj.cast = []
+            obj.cast.clear()
         return commit(obj)
