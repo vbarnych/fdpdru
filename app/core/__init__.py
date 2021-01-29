@@ -1,6 +1,6 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
-
+import os
 DB_URL = os.environ['DB_URL']
 
 db = SQLAlchemy()
